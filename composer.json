@@ -1,0 +1,31 @@
+{
+    "name": "chondal/telegram-user-suscription",
+    "description": "Captar id de chat de telegram y asociarlo a un usuario para enviarle mensajes.",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonathan",
+            "email": "jg.pradi@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Chondal\\TelegramUserSuscription\\": "src/"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.6"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chondal\\TelegramUserSuscription\\TelegramUserSuscriptionServiceProvider"
+            ],
+            "aliases": {
+                "TelegramUserSuscription": "Chondal\\TelegramUserSuscription\\Facades\\TelegramUserSuscription"
+            }
+        }
+    }
+}
