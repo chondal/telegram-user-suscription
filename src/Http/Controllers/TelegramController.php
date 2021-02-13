@@ -20,13 +20,18 @@ class TelegramController extends Controller
             if (str_contains($text, 'USER@')) {
                 $this->checkUser($request, $text, $chat_id);
             } else {
-                return 'no se encontro user@';
+                $this->otherAction($request, $text, $chat_id);
             }
 
             return response()->json('ok', 200);
         } catch (\Exception $ex) {
             return response()->json("Error: {$ex->getMessage()}", 500);
         }
+    }
+
+    private function otherAction(Request $request, $text, $chat_id)
+    {
+        return 'en desarrollo';
     }
 
     private function checkUser(Request $request, $text, $chat_id)
@@ -53,7 +58,7 @@ class TelegramController extends Controller
         $params = [
             'chat_id' => $chat_id,
             'text' => $text,
-            'parse_mode' => "Markdown",
+            'parse_mode' => "HTML",
         ];
 
         $send = Http::post($url, $params);
