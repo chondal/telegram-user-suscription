@@ -21,7 +21,7 @@
                             {{ TelegramUserSuscription::qr(200) }}
                         </div>
                         <p>También podes acceder desde este link.</p>
-                        <a class="btn btn-link" href="{{ TelegramUserSuscription::link() }}"> <img width="20px" src="{{ config('telegram-user.icon') }}" alt=""> ACCEDER AHORA</a>
+                        <a target="_blank" class="btn btn-link" href="{{ TelegramUserSuscription::link() }}"> <img width="20px" src="{{ config('telegram-user.icon') }}" alt=""> ACCEDER AHORA</a>
                     </div>
                 </div>
             </div>

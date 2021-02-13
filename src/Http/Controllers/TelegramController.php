@@ -15,10 +15,9 @@ class TelegramController extends Controller
     public function process(Request $request)
     {
         try {
-            \Log::info($request->all());
-            $text = $request->result[0]['message']['text'];
-            $chat_id = $request->result[0]['message']['chat']['id'];
-            if (str_contains($text, 'USER@')) {
+            $text = $request->message['text'];
+            $chat_id = $request->message['chat']['id'];
+            if (str_contains($text, '/start')) {
                 $this->checkUser($request, $text, $chat_id);
             } else {
                 $this->otherAction($request, $text, $chat_id);
@@ -32,18 +31,18 @@ class TelegramController extends Controller
 
     private function otherAction(Request $request, $text, $chat_id)
     {
-        return 'en desarrollo';
+        $this->sendMessage('Aún no podemos contestar mensajes', $chat_id);
     }
 
     private function checkUser(Request $request, $text, $chat_id)
     {
-        $token = explode("USER@", $text)[1];
+        $token = explode("/start", $text)[1];
 
-        $t = TelegramUser::whereToken($token)->first();
+        $user = TelegramUser::whereToken(trim($token))->first();
 
-        if ($t) {
-            $t->update([
-                'object' => $request->result,
+        if ($user) {
+            $user->update([
+                'object' => $request->message,
                 'chat_id' => $chat_id,
             ]);
             $this->sendMessage(config('telegram-user.message.success'), $chat_id);
