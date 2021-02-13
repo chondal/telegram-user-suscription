@@ -15,6 +15,7 @@ class TelegramController extends Controller
     public function process(Request $request)
     {
         try {
+            \Log::info($request->all());
             $text = $request->result[0]['message']['text'];
             $chat_id = $request->result[0]['message']['chat']['id'];
             if (str_contains($text, 'USER@')) {
