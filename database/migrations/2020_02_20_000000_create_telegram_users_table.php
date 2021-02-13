@@ -16,6 +16,7 @@ class CreateTelegramUsersTable extends Migration
         Schema::create('telegram_users', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->string('chat_id')->nullable();
             $table->string('token')->nullable();
             $table->json('object')->nullable();
             $table->timestamps();

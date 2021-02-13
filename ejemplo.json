@@ -1,0 +1,58 @@
+{
+    "ok": true,
+    "result": [
+        {
+            "update_id": 340388429,
+            "message": {
+                "message_id": 1,
+                "from": {
+                    "id": 213077083,
+                    "is_bot": false,
+                    "first_name": "Jonathan",
+                    "last_name": "Pradi",
+                    "username": "chondal",
+                    "language_code": "es"
+                },
+                "chat": {
+                    "id": 213077083,
+                    "first_name": "Jonathan",
+                    "last_name": "Pradi",
+                    "username": "chondal",
+                    "type": "private"
+                },
+                "date": 1567787495,
+                "text": "/start=USER@1OtvF41613215798",
+                "entities": [
+                    {
+                        "offset": 0,
+                        "length": 6,
+                        "type": "bot_command"
+                    }
+                ]
+            }
+        },
+        {
+            "update_id": 340388430,
+            "message": {
+                "message_id": 2,
+                "from": {
+                    "id": 213077083,
+                    "is_bot": false,
+                    "first_name": "Jonathan",
+                    "last_name": "Pradi",
+                    "username": "chondal",
+                    "language_code": "es"
+                },
+                "chat": {
+                    "id": 213077083,
+                    "first_name": "Jonathan",
+                    "last_name": "Pradi",
+                    "username": "chondal",
+                    "type": "private"
+                },
+                "date": 1567787515,
+                "text": "hola"
+            }
+        }
+    ]
+}

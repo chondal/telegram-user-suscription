@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-light" data-toggle="modal" data-target="#modelTelegram">
-  <img width="20px" src="{{ config('telegram-user.icon') }}" alt=""> Notificaciones Telegram
+  <img width="15px" src="{{ config('telegram-user.icon') }}" alt=""> Notificaciones Telegram
 </button>
 
 <!-- Modal -->
