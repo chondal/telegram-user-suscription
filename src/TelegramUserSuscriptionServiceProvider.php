@@ -24,9 +24,8 @@ class TelegramUserSuscriptionServiceProvider extends ServiceProvider
             __DIR__ . '/../config/telegram-user.php' => base_path('config/telegram-user.php'),
         ], 'telegram-user-suscription-config');
         $this->publishes([
-            __DIR__ . '/Http/Controllers/TelegramController' => app_path('Http/Controllers/TelegramController.php'), 'telegram-user-suscription-controller',
-        ]);
-
+            __DIR__ . '/Http/Controllers/TelegramController.php' => app_path('Http/Controllers/TelegramController.php'),
+        ], 'telegram-user-suscription-controller');
     }
 
     public function register()
