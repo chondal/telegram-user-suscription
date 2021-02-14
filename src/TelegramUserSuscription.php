@@ -27,7 +27,7 @@ class TelegramUserSuscription
 
     public function link()
     {
-        return ($this->token) ? "https://t.me/" . $this->botName . "?start=USER@" . $this->token : '';
+        return ($this->token) ? "https://t.me/" . $this->botName . "?start=" . $this->token : '';
     }
 
     public function qr($width = 100)

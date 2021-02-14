@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-light" data-toggle="modal" data-target="#modelTelegram">
+<button type="button" class="btn btn-light btn-block" data-toggle="modal" data-target="#modelTelegram">
   <img width="15px" src="{{ config('telegram-user.icon') }}" alt=""> Notificaciones Telegram
 </button>
 
@@ -8,7 +8,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Recibí notificaciones en Telegram.</h5>
+                <h5 class="modal-title">Recibí Notificaciones en Telegram.</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
