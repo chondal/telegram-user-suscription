@@ -5,7 +5,7 @@ Captar el id de chat de un usuario para luego poder usarlo en notificaciones, en
 ## Instalación
 
 ```bash
-composer require chondal/model-notes
+composer require chondal/telegram-usr-suscription
 ```
 Luego ejecutar migraciones para migrar la tabla "telegram_users"
 
@@ -25,7 +25,7 @@ protected $except = [
 ],
 ```
 
-3) Agregar al modelo user el Trait hasTelegram e importar la libreria
+3) Agregar al modelo user el Trait hasTelegram e importar la libreria, por ejemplo:
 ```bash
 use Notifiable, HasTelegram;
 ```
@@ -44,6 +44,12 @@ Si queres mostrar un QR:
 
 {{ TelegramUserSuscription::modal() }}
 
+## Otros Metodos disponibles
+$user->telegramActive()
+Define si el usuario por el cual se pregunta, tiene o no.
+
+Scope para traer usuarios que tienen telegram.
+User::telegramers()->get()
 ## Publicar Vistas y archivo de configuración.
 Se pueden publicar las vistas escribiendo en consola:
 ```bash
@@ -51,9 +57,6 @@ php artisan vendor:publish
 ```
 
 
-## Capturas
-
-![alt text](https://res.cloudinary.com/dchaozfok/image/upload/v1597698708/imhr9vtnikwkmtmbxtsd.png)
 
 ## Contributing
 Este paquete aún se encuentra en desarrollo, se acepta cualquier tipo de sugerencia.
