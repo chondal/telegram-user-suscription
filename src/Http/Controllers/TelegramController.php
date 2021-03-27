@@ -5,6 +5,7 @@ namespace Chondal\TelegramUserSuscription\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Chondal\TelegramUserSuscription\Models\TelegramUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class TelegramController extends Controller
@@ -47,9 +48,32 @@ class TelegramController extends Controller
             ]);
             $this->sendMessage(config('telegram-user.message.success'), $chat_id);
         } else {
-            $this->sendMessage(config('telegram-user.message.error'), $chat_id);
+            $text .= "⚠️ Hola! lamentablemente no encontramos tu usario en nuestra base.\n"
+                . "Intenta infresar este código en la aplicación:\n"
+                . "*Código: * {$chat_id}\n";
+            $this->sendMessage($text, $chat_id);
         }
 
+    }
+
+    public function suscription(Request $request)
+    {
+        try {
+            $user = Auth::user();
+            $telegram = $user->telegram();
+            $telegram->update([
+                'chat_id' => $request->user_code,
+            ]);
+            $this->sendMessage("Hola {$user->name}, ya estas suscripto a las notificaciones ✅", $user->telegram->chat_id);
+
+            flash("Recibitas una notificación en Telegram.")
+                ->success()->important();
+
+            return back();
+        } catch (\Exception $ex) {
+            flash("Error: {$ex->getMessage()}")->error()->important();
+            return back();
+        }
     }
 
     private function sendMessage($text, $chat_id)
